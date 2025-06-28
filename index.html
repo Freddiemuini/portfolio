@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mhenga Freddy's Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for transitions, active states, and enhanced effects */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background for the page */
+        }
+
+        /* Styles for content sections - crucial for visibility and animation */
+        .content-section {
+            display: none; /* Hide all content sections by default */
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+            animation: fadeInSlideUp 0.7s ease-out forwards; /* Initial animation for active section */
+        }
+
+        .content-section.active {
+            display: block; /* Show the active content section */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Keyframes for initial fade-in and slide-up animation */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Style for active navigation tab */
+        .nav-link.active-tab {
+            background-color: #374151; /* Darker gray for active tab, more contrast */
+            color: #ffffff; /* Ensure text is white */
+            font-weight: 700; /* Bolder font weight */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger, deeper shadow */
+            transform: translateY(-3px) scale(1.03); /* More pronounced lift and scale */
+            border: 2px solid #6b7280; /* Subtle border for emphasis */
+        }
+
+        /* Enhanced hover effects for navigation links */
+        .nav-link:hover {
+            background-color: #5a6270; /* Slightly lighter on hover than active, but distinct */
+            transform: translateY(-4px) scale(1.05); /* More aggressive lift and scale on hover */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Even stronger shadow on hover */
+            color: #edf2f7; /* Slight text color change on hover for pop */
+        }
+
+        /* Additional shadow for logo */
+        .text-shadow-lg {
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+        }
+        .logo:hover {
+            transform: scale(1.07); /* Slightly more aggressive scale on logo hover */
+            box-shadow: 0 4px 15px rgba(11, 230, 22, 0.7); /* Add subtle shadow on logo hover */
+        }
+
+        /* Header Gradient Styles - dynamic background based on active tab */
+        #main-header {
+            transition: background-image 0.7s ease-in-out; /* Smooth transition for background gradient change */
+        }
+
+        /* Specific gradients for each section */
+        .gradient-home { background-image: linear-gradient(to right, #1a202c, #2d3748); } /* Dark Gray (default) */
+        .gradient-about { background-image: linear-gradient(to right, #6b21a8, #8b5cf6); } /* Purple */
+        .gradient-services { background-image: linear-gradient(to right, #065f46, #10b981); } /* Green */
+        .gradient-contact { background-image: linear-gradient(to right, #b45309, #f59e0b); } /* Orange */
+        .gradient-faqs { background-image: linear-gradient(to right, #dc2626, #ef4444); } /* Red */
+
+        /* Ensure content section headers are visible and consistent */
+        .content-section h2 {
+            font-family: 'Inter', sans-serif;
+            color: #1a202c; /* Dark text for headers */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <header id="main-header" class="text-white p-4 shadow-2xl relative z-10 gradient-home">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center py-2">
+            <div class="logo text-3xl font-extrabold mb-4 md:mb-0 rounded-xl p-3 bg-gray-800 hover:bg-gray-700 transition-all duration-500 transform hover:scale-105 cursor-pointer text-shadow-lg">
+                Mhenga Freddy
+            </div>
+            <nav class="w-full md:w-auto">
+                <ul class="flex flex-wrap justify-center space-x-2 md:space-x-4">
+                    <li><a href="#home" class="nav-link px-5 py-2.5 rounded-xl hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl block">Home</a></li>
+                    <li><a href="#about" class="nav-link px-5 py-2.5 rounded-xl hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl block">About</a></li>
+                    <li><a href="#services" class="nav-link px-5 py-2.5 rounded-xl hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl block">Services</a></li>
+                    <li><a href="#contact" class="nav-link px-5 py-2.5 rounded-xl hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl block">Contact</a></li>
+                    <li><a href="#faqs" class="nav-link px-5 py-2.5 rounded-xl hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl block">FAQs</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto p-6 md:p-8 bg-white shadow-2xl rounded-2xl my-8 transform hover:shadow-3xl transition-shadow duration-300">
+        <!-- Home Content Section -->
+        <div id="home" class="content-section active p-6 md:p-8">
+            <h2 class="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">Welcome to Mhenga Freddy's Portfolio!</h2>
+            <div class="introduction text-lg leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-4 py-2 bg-blue-50 bg-opacity-50 rounded-md">
+                <p class="mb-4">Mhenga Freddy is a passionate web developer with a keen interest in creating dynamic and responsive web applications. With a strong foundation in HTML, CSS, and JavaScript, Freddy is dedicated to delivering high-quality code and innovative solutions to meet client needs.</p>
+                <p>Freddy's expertise extends to various frameworks and libraries, enabling the development of user-friendly interfaces and seamless user experiences. He thrives on bringing ideas to life through clean, efficient, and well-documented code. Whether it's front-end development, back-end integration, or full-stack solutions, Freddy is committed to delivering excellence.</p>
+                <p class="mt-4 font-medium text-gray-800">Explore the tabs above to learn more about my skills, services, and how we can work together!</p>
+            </div>
+        </div>
+
+        <!-- About Content Section -->
+        <div id="about" class="content-section p-6 md:p-8">
+            <h2 class="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">About Me</h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-4">I am a dedicated web developer with 3 years of experience in building modern web applications. My journey into web development started with a fascination for how websites are built and a desire to create impactful digital experiences. I specialize in front-end technologies like React and Vue.js, and also have experience with Node.js and Python for back-end development. I love problem-solving and continuously learning new technologies to stay at the forefront of the industry.</p>
+            <p class="text-lg leading-relaxed text-gray-700 border-l-4 border-purple-500 pl-4 py-2 bg-purple-50 bg-opacity-50 rounded-md">Outside of coding, I enjoy hiking, playing chess, and exploring new coffee shops, constantly seeking inspiration from various aspects of life.</p>
+        </div>
+
+        <!-- Services Content Section -->
+        <div id="services" class="content-section p-6 md:p-8">
+            <h2 class="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">My Services</h2>
+            <ul class="list-disc list-inside text-lg leading-relaxed text-gray-700 space-y-3 p-4 bg-green-50 bg-opacity-50 rounded-md border-l-4 border-green-500">
+                <li class="mb-2"><strong>Web Development:</strong> Building responsive and dynamic websites from scratch, tailored to your specific business needs.</li>
+                <li class="mb-2"><strong>Front-End Development:</strong> Crafting intuitive and engaging user interfaces using modern JavaScript frameworks like React, ensuring a seamless user experience.</li>
+                <li class="mb-2"><strong>Back-End Development:</b> Developing robust and scalable server-side logic and APIs, handling data storage, user authentication, and more.</li>
+                <li class="mb-2"><strong>Website Maintenance:</strong> Providing ongoing support, security updates, performance optimization, and bug fixes to keep your website running smoothly.</li>
+                <li class="mb-2"><strong>Consultation:</strong> Offering expert guidance on technology stacks, project architecture, and best practices to help you make informed decisions for your web projects.</li>
+            </ul>
+        </div>
+
+        <!-- Contact Content Section -->
+        <div id="contact" class="content-section p-6 md:p-8">
+            <h2 class="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">Connect with Me!</h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-6">Have a project in mind, a question, or just want to chat about web development? I'm always open to new connections and collaborations!</p>
+            <div class="space-y-4 text-lg leading-relaxed text-gray-700 p-4 bg-yellow-50 bg-opacity-50 rounded-md border-l-4 border-yellow-500">
+                <p><strong>Email:</strong> <a href="mailto:freddy@example.com" class="text-blue-700 hover:underline font-medium">muinifreddie054@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+1234567890" class="text-blue-700 hover:underline font-medium">+254746822561</a></p>
+                <p><strong>LinkedIn:</strong> <a href="#" class="text-blue-700 hover:underline font-medium">linkedin.com/in/mhengafreddy</a></p>
+                <p><strong>GitHub:</strong> <a href="#" class="text-blue-700 hover:underline font-medium">github.com/mhengafreddy</a></p>
+            </div>
+            <p class="mt-6 text-base text-gray-600">I strive to respond to all inquiries within 24-48 hours. Looking forward to hearing from you!</p>
+        </div>
+
+        <!-- FAQs Content Section -->
+        <div id="faqs" class="content-section p-6 md:p-8">
+            <h2 class="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">Frequently Asked Questions</h2>
+            <div class="space-y-6 text-lg leading-relaxed text-gray-700 p-4 bg-red-50 bg-opacity-50 rounded-md border-l-4 border-red-500">
+                <div>
+                    <h3 class="font-semibold text-xl md:text-2xl text-gray-900 mb-2">Q: What technologies do you primarily work with?</h3>
+                    <p>A: I primarily work with modern web standards including HTML5, CSS3 (with Tailwind CSS for rapid styling), and JavaScript. My go-to frameworks are React and Vue.js for dynamic front-end development, and I'm proficient in Node.js and sometimes Python (with Flask/Django) for robust backend solutions and API development.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl md:text-2xl text-gray-900 mb-2">Q: How long does it typically take to build a website?</h3>
+                    <p>A: The development timeline is highly dependent on the project's scope, complexity, and specific feature requirements. A basic informational website might take 1-3 weeks, while a more intricate e-commerce platform or custom web application could range from several weeks to a few months. We'll establish a clear timeline during the initial consultation phase.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-xl md:text-2xl text-gray-900 mb-2">Q: Do you offer ongoing maintenance and support?</h3>
+                    <p>A: Absolutely! I believe in long-term partnerships. I offer comprehensive post-launch support and maintenance packages, including regular updates, security monitoring, performance optimizations, and content management assistance. This ensures your website remains secure, efficient, and up-to-date with evolving web standards.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gradient-to-r from-gray-900 to-gray-700 text-white p-4 text-center mt-auto shadow-inner text-sm relative z-10">
+        <p>&copy; 2025 Mhenga Freddy. All rights reserved. Crafted with <span class="text-red-400">&hearts;</span> for the web.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.getElementById('main-header'); // Get the header element
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Map section IDs to their corresponding header gradient classes
+            const headerGradientMap = {
+                'home': 'gradient-home',
+                'about': 'gradient-about',
+                'services': 'gradient-services',
+                'contact': 'gradient-contact',
+                'faqs': 'gradient-faqs'
+            };
+
+            // Function to hide all content sections with transition
+            const hideAllSections = () => {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(10px)';
+                });
+            };
+
+            // Function to remove active class from all nav links
+            const removeActiveClassFromNavLinks = () => {
+                navLinks.forEach(link => {
+                    link.classList.remove('active-tab');
+                });
+            };
+
+            // Function to remove all gradient classes from the header
+            const removeAllHeaderGradients = () => {
+                Object.values(headerGradientMap).forEach(cls => {
+                    mainHeader.classList.remove(cls);
+                });
+            };
+
+            // Function to show a specific content section and mark the corresponding nav link as active
+            const showSection = (id) => {
+                hideAllSections(); // Hide all before showing new
+
+                const targetSection = document.getElementById(id);
+                if (targetSection) {
+                    targetSection.classList.add('active'); // Add active to make it visible via CSS
+                }
+
+                // Add active-tab class to the clicked link
+                const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (activeLink) {
+                    removeActiveClassFromNavLinks(); // Remove active from others
+                    activeLink.classList.add('active-tab');
+                }
+
+                // Update header background gradient
+                removeAllHeaderGradients(); // Remove previous gradient
+                if (headerGradientMap[id]) {
+                    mainHeader.classList.add(headerGradientMap[id]); // Add new gradient
+                } else {
+                    // Fallback to default if no specific gradient is defined for the ID
+                    mainHeader.classList.add('gradient-home');
+                }
+            };
+
+            // Add click event listeners to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default anchor link behavior
+                    const targetId = event.target.getAttribute('href').substring(1); // Get section ID from href
+                    showSection(targetId);
+                });
+            });
+
+            // Show the 'home' section and activate its link/header gradient by default on page load
+            showSection('home');
+        });
+    </script>
+</body>
+</html>

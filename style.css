@@ -1,0 +1,128 @@
+/* Define Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Global styles for body */
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, #f8f8fa, #e0e6eb); /* Lighter, more subtle gradient */
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keyframe animation for subtle pulsing effect on logo/active elements */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Keyframe animation for fading in content with a slight bounce */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframe animation for background shimmer */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Apply fade-in animation to active content sections */
+.content-section.active {
+    animation: fadeInSlideUp 0.6s ease-out forwards; /* Slightly longer animation */
+}
+
+/* Active tab styling for navigation links */
+.active-tab {
+    font-weight: 700; /* Bolder */
+    color: #ffffff; /* White text */
+    background-color: #5a7dff; /* More vibrant blue */
+    background-image: linear-gradient(135deg, #5a7dff 0%, #00c6fb 100%); /* Gradient background */
+    border-radius: 0.8rem; /* Even more rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.2); /* Enhanced shadow with inner glow */
+    transform: scale(1.08); /* More noticeable scaling */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother, bouncier transition */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    animation: pulse 1.5s infinite ease-in-out; /* Add subtle pulse to active tab */
+}
+
+/* Hide all content sections by default */
+.content-section {
+    display: none;
+    opacity: 0; /* Initial opacity for animation */
+    transform: translateY(20px); /* Initial position for animation */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* Transition for non-active states */
+}
+
+/* Logo specific styles */
+.logo {
+    animation: pulse 2s infinite ease-in-out; /* Pulse animation for logo */
+}
+
+/* Enhance hover effects for nav links */
+.nav-link:hover {
+    background-color: rgba(75, 85, 99, 0.8); /* Slightly transparent hover background */
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+/* Content section specific styling */
+main {
+    background: linear-gradient(160deg, #ffffff 0%, #f0f4f8 100%); /* Soft gradient for main content */
+    border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+    position: relative;
+    overflow: hidden; /* Ensure shimmer is clipped */
+}
+
+/* Add a pseudo-element for shimmer effect on main content */
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 15s infinite linear;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+h2 {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px; /* Underline effect */
+    height: 3px;
+    background-color: #5a7dff; /* Matching accent color */
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 1rem; /* Consistent spacing */
+}
+
+ul li {
+    line-height: 1.8; /* Improve readability of list items */
+}
